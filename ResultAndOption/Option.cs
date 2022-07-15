@@ -29,6 +29,19 @@ public abstract record Option<T> : IDisposable
         }
     }
 
+    public static explicit operator T(Option<T> result)
+    {
+        switch (result)
+        {
+            case Some(T Value):
+                return Value;
+
+            default:
+            case None:
+                throw new Exception("Unhandled error in result");
+        }
+    }
+
     /*
     public static implicit operator T(Option<T> result)
     {
@@ -38,7 +51,7 @@ public abstract record Option<T> : IDisposable
                 return Value;
 
             default:
-            case _None:
+            case None:
                 throw new Exception("Unhandled error in result");
         }
     }
