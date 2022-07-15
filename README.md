@@ -6,9 +6,11 @@ Defines the discriminated unions ```Result<T, TError>```och ```Option<T>```, and
 
 Inspired by [Beef programming language](https://www.beeflang.org/), a language inspired by C#, and others like Rust.
 
+The syntax is quite verbose, but can be simplified with ```using static``` as shown in source code. Read more below.
+
 ## Result
 
-Either has an ```Ok``` value of```T```, or an ```Error``` value of ```TError```.
+Either has an ```Ok``` value of ```T```, or an ```Error``` value of ```TError```.
 
 ```csharp
 public abstract record Result<T> : IDisposable
@@ -45,7 +47,7 @@ Used like so:
 ```csharp
 return new System.Option<string>.Ok("Test");
 
-return new System.Result<string,>.None();
+return new System.Option<string>.None();
 
 // NOTE: Would have been nice if the parentheses of constructors were optional when having no arguments. There is little risk of confusion with fields.
 ```
